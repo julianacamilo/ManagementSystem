@@ -15,6 +15,7 @@ const ExpensesPage = () => {
     backgroundPosition: 'center', 
   }}
 >
+  
          
       <div className="max-w-screen-sm mx-auto flex flex-col items-center">
 
