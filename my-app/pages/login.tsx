@@ -1,40 +1,53 @@
-"use client"
 import Footer from '@/components/footer';
 import Header from '@/components/head';
 import React, { useState } from 'react';
-import { useRouter } from 'next/navigation'; 
+import { useRouter } from 'next/router'; // Importe de 'next/router' em vez de 'next/navigation'
 import 'tailwindcss/tailwind.css';
+import axios from 'axios';
 
-
-const Login = () => {
+const Login = () => { 
   const router = useRouter(); 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [emailError, setEmailError] = useState(''); // Estado para armazenar a mensagem de erro de email
-  const [passwordError, setPasswordError] = useState(''); // Estado para armazenar a mensagem de erro de senha
+  const [loginError, setLoginError] = useState('');
 
-  const handleLogin = () => {
-    setEmailError(''); // Limpa mensagens de erro anteriores
-    setPasswordError('');
+
+
+  const handleLogin = async () => {
+    setLoginError(''); // Limpa o erro anterior ao tentar fazer login
 
     if (!email) {
-      setEmailError('Preencha o campo de email.');
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
-      setEmailError('Email inválido. Certifique-se de que contém um "@" e um domínio válido (exemplo: exemplo@gmail.com).');
+      setLoginError('Preencha o campo de email.');
+      return;
     }
 
     if (!password) {
-      setPasswordError('Preencha o campo de senha.');
+      setLoginError('Preencha o campo de senha.');
+      return;
     }
 
-    if (email && password) {
-      router.push('/profile'); 
+    try {
+      const response = await axios.post('http://localhost:3001/login', {
+        email,
+        password,
+      });
+
+      if (response.status === 200) {
+        // Login bem-sucedido, você pode redirecionar para a página de perfil ou outra página desejada
+        console.log('Login bem-sucedido');
+        router.push('/profile'); 
+      } else {
+        setLoginError('Credenciais inválidas');
+      }
+    } catch (error) {
+      console.error('Erro ao fazer login:', error);
+      setLoginError('Erro ao fazer login');
     }
   };
 
   return (
     <div className="">
-      <Header/>
+      <Header />
       <div
         className="flex justify-center items-center min-h-screen bg-gray-100"
         style={{
@@ -59,7 +72,7 @@ const Login = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          {emailError && <span className="text-purple-600">{emailError}</span>} {/* Mostra a mensagem de erro de email */}
+    
           <input
             className="w-full mt-2 p-2 border border-gray-300 rounded"
             type="password"
@@ -67,7 +80,7 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          {passwordError && <span className="text-purple-600">{passwordError}</span>} {/* Mostra a mensagem de erro de senha */}
+
           <p className="mt-2">Esqueci minha senha</p>
           <button
             className="w-full px-4 py-2 mt-4 bg-purple-600 text-white rounded-full text-lg cursor-pointer"
@@ -75,9 +88,10 @@ const Login = () => {
           >
             Entrar
           </button>
+          {loginError && <p style={{ color: 'red' }}>{loginError}</p>}
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

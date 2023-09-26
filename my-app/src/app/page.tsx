@@ -1,47 +1,60 @@
-"use client"
+"use client";
 import Footer from '@/components/footer';
 import Header from '@/components/head';
+import axios from 'axios';
 import { useRouter } from 'next/navigation'; 
-import { useState } from 'react'; 
+import { useState } from 'react';
 
-export default function Home() {
+const Register = () => {
   const router = useRouter(); 
-
-
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [emailError, setEmailError] = useState('');
-  const [passwordError, setPasswordError] = useState(''); 
+  const [registerError, setRegisterError] = useState('');
 
+  
   const handleLoginClick = () => {
     router.push('/login'); 
   };
+  const handleRegister = async () => {
+    setRegisterError(''); 
 
-  const handleRegisterClick = () => {
-
-    setEmailError('');
-    setPasswordError('');
-
+    if (!name) {
+      setRegisterError('Preencha o campo de nome.');
+      return;
+    }
 
     if (!email) {
-      setEmailError('Preencha o campo de email.');
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
-      setEmailError('Email inválido. Certifique-se de que contém um "@" e um domínio válido (exemplo: exemplo@gmail.com).');
+      setRegisterError('Preencha o campo de email.');
+      return;
     }
 
-    
     if (!password) {
-      setPasswordError('Preencha o campo de senha.');
-    } else if (password.length < 6) {
-      setPasswordError('A senha deve ter pelo menos 6 caracteres.');
+      setRegisterError('Preencha o campo de senha.');
+      return;
     }
 
-    if (email && password) {
-      router.push('/login'); 
+   
+
+    try {
+      const response = await axios.post('http://localhost:3001/register', {
+        name,
+        email,
+        password,
+      });
+
+      if (response.status === 200) {
+     
+        console.log('Registro bem-sucedido');
+        router.push('/login'); 
+      } else {
+        setRegisterError('Erro no registro');
+      }
+    } catch (error) {
+      console.error('Erro ao fazer registro:', error);
+      setRegisterError('Erro ao fazer registro');
     }
   };
-
   return (
     <div>
       <Header />
@@ -55,19 +68,15 @@ export default function Home() {
       >
         <div className="w-1/3 p-6 bg-purple-600 text-white">
           <h2 className="text-3xl font-semibold">FINANÇAS</h2>
-          <h3 className="text-2xl mt-2">
-            Bem-vindo <br /> de volta!
-          </h3>
-          <p className="text-sm mt-4">
-            Acesse sua conta agora <br /> mesmo
-          </p>
+          <h3 className="text-2xl mt-4">Bem-vindo de volta!</h3>
+          <p className="text-2x1 mt-4">Acesse sua conta <br/> agora mesmo</p>
           <button
             className="px-4 py-2 mt-4 bg-purple-700 text-white rounded-full text-lg cursor-pointer"
             onClick={handleLoginClick}
           >
             ENTRAR
           </button>
-          <p className="text-sm mt-4">Esqueci minha <br /> senha</p>
+          <p className="text-1x2 mt-4">Esqueci minha <br /> senha</p>
         </div>
         <div className="w-1/3 p-6 bg-white">
           <h2 className="text-3xl font-semibold">Crie sua conta</h2>
@@ -86,7 +95,7 @@ export default function Home() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          {emailError && <span className="text-purple-600">{emailError}</span>} 
+    
           <input
             className="w-full mt-2 p-2 border border-gray-300 rounded"
             type="password"
@@ -94,16 +103,19 @@ export default function Home() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          {passwordError && <span className="text-purple-600">{passwordError}</span>} 
+     
+          
           <button
             className="w-full px-4 py-2 mt-4 bg-purple-600 text-white rounded-full text-lg cursor-pointer"
-            onClick={handleRegisterClick}
+            onClick={handleRegister}
           >
             Cadastrar
           </button>
+          {registerError && <p style={{ color: 'red' }}>{registerError}</p>}
         </div>
       </div>
       <Footer />
     </div>
   );
 }
+export default Register
