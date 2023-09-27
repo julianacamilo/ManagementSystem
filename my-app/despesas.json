@@ -1,0 +1,54 @@
+{
+  "despesas": [
+    {
+      "data": "2023-09-26",
+      "descricao": "Compras de supermercado",
+      "valor": 100.0
+    },
+    {
+      "data": "2023-09-27",
+      "descricao": "Conta de energia",
+      "valor": 50.0
+    },
+    {
+      "data": "2023-09-28",
+      "descricao": "Aluguel",
+      "valor": 75.0
+    },
+    {
+      "data": "2023-09-29",
+      "descricao": "Jantar em restaurante",
+      "valor": 120.0
+    },
+    {
+      "data": "2023-09-30",
+      "descricao": "Gasolina",
+      "valor": 45.0
+    },
+    {
+      "data": "2023-10-01",
+      "descricao": "Cinema",
+      "valor": 60.0
+    },
+    {
+      "data": "2023-10-02",
+      "descricao": "Assinatura de streaming",
+      "valor": 90.0
+    },
+    {
+      "data": "2023-10-03",
+      "descricao": "Telefone celular",
+      "valor": 70.0
+    },
+    {
+      "data": "2023-10-04",
+      "descricao": "Compras online",
+      "valor": 150.0
+    },
+    {
+      "data": "2023-10-05",
+      "descricao": "Lanche rápido",
+      "valor": 55.0
+    }
+  ]
+}
