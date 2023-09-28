@@ -1,0 +1,31 @@
+{
+    "metas": [
+      {
+        "id": 1,
+        "descricao": "Alimentação",
+        "valor": 1500.0
+      },
+      {
+        "id": 2,
+        "descricao": "Trasporte",
+        "valor": 100.0
+      },
+      {
+        "id": 3,
+        "descricao": "Lazer",
+        "valor": 1500.0
+      },
+      {
+        "id": 4,
+        "descricao": "Água",
+        "valor": 150.0
+      },
+      {
+        "id": 5,
+        "descricao": "Aluguel",
+        "valor": 75.0
+      }
+      
+    ]
+  }
+  

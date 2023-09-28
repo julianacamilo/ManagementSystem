@@ -14,6 +14,11 @@
       "name": "juliana123",
       "email": "juliana12@gmail.com",
       "password": "jujuju"
+    },
+    {
+      "name": "gabriel",
+      "email": "gabriel@gmail.com",
+      "password": "12345"
     }
   ]
 }
