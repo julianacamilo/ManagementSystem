@@ -61,7 +61,7 @@ const Register = () => {
       <div
         className="flex justify-center items-center min-h-screen bg-gray-100"
         style={{
-          backgroundImage: `url('https://agilize.com.br/blog/wp-content/uploads/2022/10/AG-17.png')`,
+          backgroundImage: `url('https://img.freepik.com/fotos-premium/grafico-de-crescimento-financeiro-disponivel-os-empresarios-estao-documentando-financas-de-escritorios-ideias-financeiras-e-investimentos-em-emprestimos_104677-78.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

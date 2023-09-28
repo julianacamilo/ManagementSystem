@@ -10,11 +10,11 @@ const port = process.env.PORT || 3003;
 app.use(bodyParser.json());
 app.use(cors());
 
-// Carrega o db.json
+
 const dbFile = 'db.json';
 const db = JSON.parse(fs.readFileSync(dbFile, 'utf8'));
 
-// Secret key para a autenticação JWT
+
 const secretKey = 'secretkeys';
 
 // Rota de registro de usuário
@@ -154,7 +154,7 @@ app.get('/relatorio-metas', (req, res) => {
   res.send(html);
 });
 
-// Inicie o servidor
+
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
 });

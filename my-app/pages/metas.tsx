@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import Footer from '@/components/footer';
 import Header from '@/components/head';
-
+import { useRouter } from 'next/router';
 const Metas: React.FC = () => {
   const initialMeta = {
     category: 'Outro',
     description: '',
     amount: '',
   };
-
+  const router = useRouter(); 
   const [meta, setMeta] = useState(initialMeta);
 
   const handleChange = (e: { target: { name: any; value: any; }; }) => {
@@ -22,14 +22,23 @@ const Metas: React.FC = () => {
   const handleSubmit = () => {
     console.log(meta); // Lida com os dados do formulário aqui
 
-    // Após o envio, redefina o estado para os valores iniciais
+ 
+    
     setMeta(initialMeta);
+    router.push('/relatorio'); 
   };
 
   return (
     <div>
       <Header />
-      <div className="bg-purple-500 min-h-screen flex flex-col justify-center items-center">
+      <div
+        className="bg-gray-100 min-h-screen flex flex-col justify-center items-center"
+        style={{
+          backgroundImage: `url(https://roxceramica.com.br/uploads/produtos/imagens//RXAR%2072732%20-%20CINZA%20REAL%20ACETINADO%20-BAIXA.jpg')`, // 
+          backgroundSize: 'cover',
+          backgroundPosition: 'center', 
+        }}
+      >
         <div className="container mx-auto flex justify-center items-center h-screen">
           <div className="flex space-x-4">
             <div className="w-1/2">
