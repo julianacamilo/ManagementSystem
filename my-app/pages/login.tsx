@@ -1,7 +1,7 @@
 import Footer from '@/components/footer';
 import Header from '@/components/head';
 import React, { useState } from 'react';
-import { useRouter } from 'next/router'; // Importe de 'next/router' em vez de 'next/navigation'
+import { useRouter } from 'next/router'; 
 import 'tailwindcss/tailwind.css';
 import axios from 'axios';
 
@@ -14,7 +14,7 @@ const Login = () => {
 
 
   const handleLogin = async () => {
-    setLoginError(''); // Limpa o erro anterior ao tentar fazer login
+    setLoginError(''); 
 
     if (!email) {
       setLoginError('Preencha o campo de email.');
@@ -33,7 +33,7 @@ const Login = () => {
       });
 
       if (response.status === 200) {
-        // Login bem-sucedido, você pode redirecionar para a página de perfil ou outra página desejada
+      
         console.log('Login bem-sucedido');
         router.push('/profile'); 
       } else {
@@ -51,7 +51,7 @@ const Login = () => {
       <div
         className="flex justify-center items-center min-h-screen bg-gray-100"
         style={{
-          backgroundImage: `url('https://agilize.com.br/blog/wp-content/uploads/2022/10/AG-17.png')`,
+          backgroundImage: `url('https://img.freepik.com/fotos-premium/os-investidores-estao-calculando-os-custos-de-investimento-da-calculadora-e-o-computador-em-casa_533890-572.jpg?w=2000')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

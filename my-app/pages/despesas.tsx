@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Footer from '@/components/footer';
 import Header from '@/components/head';
 import 'tailwindcss/tailwind.css';
-
+import { useRouter } from 'next/router'; 
 const ExpensesPage = () => {
   const initialExpense = {
     category: 'Outro',
@@ -11,6 +11,7 @@ const ExpensesPage = () => {
     amount: '',
   };
 
+  const router = useRouter(); 
   const [expense, setExpense] = useState(initialExpense);
 
   const handleChange = (e: { target: { name: any; value: any; }; }) => {
@@ -26,6 +27,7 @@ const ExpensesPage = () => {
 
     
     setExpense(initialExpense);
+    router.push('/relatorio'); 
   };
 
   return (

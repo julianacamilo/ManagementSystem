@@ -1,6 +1,7 @@
 import Footer from '@/components/footer';
 import Header from '@/components/head';
 import React, { useState } from 'react';
+import { useRouter } from 'next/router'; 
 
 const Ganhos = () => {
   const initialIncome = {
@@ -10,7 +11,7 @@ const Ganhos = () => {
   };
 
   const [income, setIncome] = useState(initialIncome);
-
+  const router = useRouter(); 
   const handleChange = (e: { target: { name: any; value: any; }; }) => {
     const { name, value } = e.target;
     setIncome({
@@ -20,27 +21,34 @@ const Ganhos = () => {
   };
 
   const handleSubmit = () => {
-    console.log(income); // Lida com os dados do formulário aqui
+    console.log(income); 
 
-    // Após o envio, redefina o estado para os valores iniciais
     setIncome(initialIncome);
+    router.push('/relatorio'); 
   };
 
   return (
     <div>
       <Header />
-      <div className="bg-purple-700 min-h-screen flex flex-col justify-center items-center">
+      <div
+        className="bg-gray-100 min-h-screen flex flex-col justify-center items-center"
+        style={{
+          backgroundImage: `url(https://roxceramica.com.br/uploads/produtos/imagens//RXAR%2072732%20-%20CINZA%20REAL%20ACETINADO%20-BAIXA.jpg')`, // 
+          backgroundSize: 'cover',
+          backgroundPosition: 'center', 
+        }}
+      >
         <div className="container mx-auto flex justify-center items-center h-screen">
           <div className="flex space-x-5">
             <div className="w-1/2">
-              <div className="max-w-screen-sm mx-auto bg-white p-6 rounded-md shadow-md mt-4 w-full">
-                <h1 className="text-2xl text-purple-600 font-semibold mb-4">
+              <div className="max-w-screen-sm mx-auto bg-white-200 p-6 rounded-md shadow-md mt-4 w-full">
+                <h1 className="text-1xl text-purple-600 font-semibold mb-4">
                   Adicione seus ganhos mensais <br /> e assim gerencie seu financeiro!
                 </h1>
                 <div
                   className="image-and-text"
                   style={{
-                    backgroundImage: `url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgnrvikVqXDGz4pfhKpuq2FexSpB1eD4mMKQ&usqp=CAU')`,
+                    backgroundImage: `url('https://img.freepik.com/fotos-premium/dinheiro-crescimento-negocio-grafico-economia-financas-estoque-ou-moeda-investimento-diagrama-financeiro-grafico-de-lucro-de-acoes-de-precos-de-mercado-de-cambio-global-na-analise-economica-fundo-3d-com-comercio-de-sucesso_79161-2035.jpg')`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     height: '320px',
@@ -52,7 +60,7 @@ const Ganhos = () => {
             </div>
             <div className="w-1/2">
               <div className="max-w-screen-sm mx-auto flex flex-col items-center">
-                <div className="max-w-md mx-auto bg-white p-6 rounded-md shadow-md mt-4 w-full">
+                <div className="max-w-md mx-auto  bg-white-400 p-6 rounded-md shadow-md mt-4 w-full">
                   <h1 className="text-2xl text-purple-600 font-semibold mb-4">Renda <br /> Mensal </h1>
 
                   <div className="mb-4">
