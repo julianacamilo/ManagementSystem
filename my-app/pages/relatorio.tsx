@@ -1,7 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import { GetStaticProps } from 'next';
-import React from 'react';
+import React, { useEffect } from 'react';
+import Chart from 'chart.js/auto'; // Importe o Chart.js
 import Header from '@/components/head';
 import Footer from '@/components/footer';
 import 'tailwindcss/tailwind.css';
@@ -32,6 +33,41 @@ const Relatorio = ({ transacoes }: RelatorioProps) => {
 
   // Calcula o saldo total
   const saldoTotal = totalGanhos - totalDespesas;
+
+  useEffect(() => {
+    // Renderiza o gráfico
+    const ctx = document.getElementById('meuGrafico') as HTMLCanvasElement;
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Despesas', 'Ganhos', 'Metas'],
+        datasets: [
+          {
+            label: 'Valores',
+            data: [totalDespesas, totalGanhos, metas.reduce((total, transacao) => total + transacao.valor, 0)],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)', // Cor para Despesas
+              'rgba(75, 192, 192, 0.2)', // Cor para Ganhos
+              'rgba(255, 205, 86, 0.2)', // Cor para Metas
+            ],
+            borderColor: [
+              'rgba(255, 99, 132, 1)', // Cor da borda para Despesas
+              'rgba(75, 192, 192, 1)', // Cor da borda para Ganhos
+              'rgba(255, 205, 86, 1)', // Cor da borda para Metas
+            ],
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+  }, []);
 
   return (
     <div>
@@ -127,6 +163,13 @@ const Relatorio = ({ transacoes }: RelatorioProps) => {
           </tbody>
         </table>
       </section>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      {/* Adicione o elemento Canvas para o gráfico */}
+      <canvas id="meuGrafico" width="200" height="100"></canvas>
+
     </div>
   );
 };
