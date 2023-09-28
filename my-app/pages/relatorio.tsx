@@ -31,11 +31,11 @@ const Relatorio = ({ transacoes }: RelatorioProps) => {
   const metas = transacoes.filter((transacao) => transacao.tipo === 'meta');
   const ganhos = transacoes.filter((transacao) => transacao.tipo === 'ganho');
 
-  // Calcula o saldo total
+  
   const saldoTotal = totalGanhos - totalDespesas;
 
   useEffect(() => {
-    // Renderiza o gráfico
+    
     const ctx = document.getElementById('meuGrafico') as HTMLCanvasElement;
     new Chart(ctx, {
       type: 'bar',
@@ -71,7 +71,7 @@ const Relatorio = ({ transacoes }: RelatorioProps) => {
 
   return (
     <div>
-      {/* Ganhos */}
+      
       <section>
         <h2 className="text-3xl font-semibold mt-4 mb-2">Relatório:</h2>
         <br />
@@ -98,7 +98,7 @@ const Relatorio = ({ transacoes }: RelatorioProps) => {
       </section>
       <br />
 
-      {/* Despesas */}
+     
       <section>
         <h3 className="text-2xl font-semibold mt-4">- Despesas</h3>
         <table className="w-full border-collapse border border-gray-300">
@@ -123,7 +123,7 @@ const Relatorio = ({ transacoes }: RelatorioProps) => {
       </section>
       <br />
 
-      {/* Metas */}
+      
       <section>
         <h3 className="text-2xl font-semibold mt-4">- Metas</h3>
         <table className="w-full border-collapse border border-gray-300">
@@ -145,7 +145,7 @@ const Relatorio = ({ transacoes }: RelatorioProps) => {
       </section>
       <br />
       <br></br>
-      {/* Tabela de Saldo */}
+     
       <section>
         <h2 className="text-2xl font-semibold mt-4">- Saldo</h2>
         <table className="w-full border-collapse border border-gray-300">
@@ -167,7 +167,7 @@ const Relatorio = ({ transacoes }: RelatorioProps) => {
       <br></br>
       <br></br>
       <br></br>
-      {/* Adicione o elemento Canvas para o gráfico */}
+    
       <canvas id="meuGrafico" width="200" height="100"></canvas>
 
     </div>
