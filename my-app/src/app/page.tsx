@@ -1,9 +1,9 @@
-"use client";
-import Footer from '@/components/footer';
-import Header from '@/components/head';
+"use client"
+import React, { useState } from 'react';
 import axios from 'axios';
-import { useRouter } from 'next/navigation'; 
-import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import Header from '@/components/head';
+import Footer from '@/components/footer';
 
 const Register = () => {
   const router = useRouter(); 
