@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Footer from '@/components/footer';
-import Header from '@/components/head';
+
 import 'tailwindcss/tailwind.css';
 import { useRouter } from 'next/router'; 
+import HeaderP from '@/components/header';
 const ExpensesPage = () => {
   const initialExpense = {
     category: 'Outro',
@@ -32,7 +33,7 @@ const ExpensesPage = () => {
 
   return (
     <div>
-      <Header />
+      <HeaderP />
       <div
         className="bg-gray-100 min-h-screen flex flex-col justify-center items-center"
         style={{
