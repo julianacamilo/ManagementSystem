@@ -1,7 +1,9 @@
 import Footer from '@/components/footer';
 import Header from '@/components/head';
+
 import React, { useState } from 'react';
 import { useRouter } from 'next/router'; 
+
 import 'tailwindcss/tailwind.css';
 import axios from 'axios';
 
@@ -27,7 +29,7 @@ const Login = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:3001/login', {
+      const response = await axios.post('http://localhost:3003/login', {
         email,
         password,
       });
