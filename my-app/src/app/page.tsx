@@ -33,6 +33,7 @@ const Register = () => {
       setRegisterError('Preencha o campo de senha.');
       return;
     }
+
     try {
       const response = await axios.post('http://localhost:3003/register', {
         name,
