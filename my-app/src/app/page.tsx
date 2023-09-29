@@ -76,19 +76,18 @@ const Register = () => {
               onClick={handleLoginClick}
               >
             ENTRAR
-          </button>
-          <p className="text-1x2 mt-4">Esqueci minha <br /> senha</p>
-        </div>
-        <div className="w-1/3 p-6 bg-white">
-          <h2 className="text-3xl font-semibold">Crie sua conta</h2>
-          <p className="mt-2">Preencha seus dados</p>
-          <input
-            className="w-full mt-2 p-2 border border-gray-300 rounded"
-            type="text"
-            placeholder="Nome"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
+            </button>
+          </div>
+          <div className="w-full md:w-1/1 bg-white p-6">
+            <h2 className="text-3xl font-semibold text-center">Crie sua conta</h2>
+            <p className="mt-2 text-center md:text-left">Preencha seus dados</p>
+            <input
+              className="w-full mt-4 p-2 border border-gray-300 rounded"
+              type="text"
+              placeholder="Nome"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
           <input
             className="w-full mt-2 p-2 border border-gray-300 rounded"
             type="text"
