@@ -2,16 +2,17 @@ import React, { useState } from 'react';
 import Footer from '@/components/footer';
 import Header from '@/components/head';
 import { useRouter } from 'next/router';
+
 const Metas: React.FC = () => {
   const initialMeta = {
     category: 'Outro',
     description: '',
     amount: '',
   };
-  const router = useRouter(); 
+  const router = useRouter();
   const [meta, setMeta] = useState(initialMeta);
 
-  const handleChange = (e: { target: { name: any; value: any; }; }) => {
+  const handleChange = (e: { target: { name: any; value: any } }) => {
     const { name, value } = e.target;
     setMeta({
       ...meta,
@@ -20,31 +21,29 @@ const Metas: React.FC = () => {
   };
 
   const handleSubmit = () => {
-    console.log(meta); // Lida com os dados do formulário aqui
+    console.log(meta); // Handle form data here
 
- 
-    
     setMeta(initialMeta);
-    router.push('/relatorio'); 
+    router.push('/relatorio');
   };
 
   return (
     <div>
       <Header />
       <div
-        className="bg-gray-100 min-h-screen flex flex-col justify-center items-center"
+          className="bg-gray-100 min-h-screen flex flex-col justify-center items-center px-4"
         style={{
-          backgroundImage: `url(https://roxceramica.com.br/uploads/produtos/imagens//RXAR%2072732%20-%20CINZA%20REAL%20ACETINADO%20-BAIXA.jpg')`, // 
+          backgroundImage: `url(https://roxceramica.com.br/uploads/produtos/imagens//RXAR%2072732%20-%20CINZA%20REAL%20ACETINADO%20-BAIXA.jpg')`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center', 
+          backgroundPosition: 'center',
         }}
       >
         <div className="container mx-auto flex justify-center items-center h-screen">
-          <div className="flex space-x-4">
-            <div className="w-1/2">
+          <div className="flex flex-col w-full md:flex-row">
+            <div className="md:w-1/2">
               <div className="max-w-screen-sm mx-auto bg-white p-6 rounded-md shadow-md mt-4 w-full">
                 <h1 className="text-2xl text-purple-600 font-semibold mb-4">
-                  Adicione metas  para  suas despesas  e receba alertas <br /> caso elas ultrapassem!
+                  Adicione metas para suas despesas e receba alertas <br /> caso elas ultrapassem!
                 </h1>
                 <div
                   className="image-and-text"
@@ -52,18 +51,20 @@ const Metas: React.FC = () => {
                     backgroundImage: `url('https://dindimpordindim.com.br/wp-content/uploads/2018/11/shutterstock_1126057424-1.jpg')`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    height: '300px',
+                    height: '225px',
                   }}
                 >
                   <p></p>
                 </div>
               </div>
             </div>
-            <div className="w-1/2">
+            <div className="md:w-1/2">
               <div className="max-w-screen-sm mx-auto flex flex-col items-center">
                 <div className="max-w-md mx-auto bg-white p-6 rounded-md shadow-md mt-4 w-full">
-                  <h1 className="text-2xl text-purple-600 font-semibold mb-4">Metas De <br /> Orçamento</h1>
-                  <div className="mb-4">
+                  <h1 className="text-3xl text-purple-600 font-semibold mb-2">Metas De Orçamento</h1>
+              
+
+                  <div className="mb-2">
                     <label htmlFor="category" className="block text-purple-600 font-bold mb-2">
                       Categoria:
                     </label>
