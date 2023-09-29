@@ -77,8 +77,7 @@ const Register = () => {
               >
             ENTRAR
             </button>
-          </div>
-          <div className="w-full md:w-1/1 bg-white p-6">
+            <div className="w-full md:w-1/1 bg-white p-6">
             <h2 className="text-3xl font-semibold text-center">Crie sua conta</h2>
             <p className="mt-2 text-center md:text-left">Preencha seus dados</p>
             <input
@@ -88,34 +87,33 @@ const Register = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
-          <input
-            className="w-full mt-2 p-2 border border-gray-300 rounded"
-            type="text"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-    
-          <input
-            className="w-full mt-2 p-2 border border-gray-300 rounded"
-            type="password"
-            placeholder="Senha"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-     
-          
-          <button
-            className="w-full px-4 py-2 mt-4 bg-purple-600 text-white rounded-full text-lg cursor-pointer"
-            onClick={handleRegister}
-          >
-            Cadastrar
-          </button>
-          {registerError && <p style={{ color: 'red' }}>{registerError}</p>}
+            <input
+              className="w-full mt-2 p-2 border border-gray-300 rounded"
+              type="text"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              className="w-full mt-2 p-2 border border-gray-300 rounded"
+              type="password"
+              placeholder="Senha"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button
+              className="w-full px-4 py-2 mt-8 bg-purple-600 text-white rounded-full text-lg cursor-pointer"
+              onClick={handleRegister}
+            >
+              Cadastrar
+            </button>
+            {registerError && <p className="text-red-500 text-center mt-4">{registerError}</p>}
+          </div>
         </div>
       </div>
       <Footer />
     </div>
   );
-}
-export default Register
+};
+
+export default Register;
