@@ -41,9 +41,9 @@ const Ganhos = () => {
         <div className="container mx-auto flex justify-center items-center h-screen">
           <div className="flex space-x-5">
             <div className="w-1/2">
-              <div className="max-w-screen-sm mx-auto bg-white-200 p-6 rounded-md shadow-md mt-4 w-full">
-                <h1 className="text-1xl text-purple-600 font-semibold mb-4">
-                  Adicione seus ganhos mensais <br /> e assim gerencie seu financeiro!
+              <div className="max-w-screen-sm mx-auto bg-white p-6 rounded-md shadow-md mt-4 w-full">
+              <h1 className="text-1xl text-purple-600 font-semibold mb-4">
+                  Adicione seus ganhos mensais e assim gerencie seu financeiro!
                 </h1>
                 <div
                   className="image-and-text"
@@ -51,7 +51,7 @@ const Ganhos = () => {
                     backgroundImage: `url('https://img.freepik.com/fotos-premium/dinheiro-crescimento-negocio-grafico-economia-financas-estoque-ou-moeda-investimento-diagrama-financeiro-grafico-de-lucro-de-acoes-de-precos-de-mercado-de-cambio-global-na-analise-economica-fundo-3d-com-comercio-de-sucesso_79161-2035.jpg')`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    height: '320px',
+                    height: '340px',
                   }}
                 >
                   <p></p>
@@ -60,7 +60,7 @@ const Ganhos = () => {
             </div>
             <div className="w-1/2">
               <div className="max-w-screen-sm mx-auto flex flex-col items-center">
-                <div className="max-w-md mx-auto  bg-white-400 p-6 rounded-md shadow-md mt-4 w-full">
+                <div className="max-w-md mx-auto  bg-white p-6 rounded-md shadow-md mt-4 w-full">
                   <h1 className="text-2xl text-purple-600 font-semibold mb-4">Renda <br /> Mensal </h1>
 
                   <div className="mb-4">
