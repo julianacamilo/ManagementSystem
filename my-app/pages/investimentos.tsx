@@ -1,4 +1,4 @@
-// pages/index.tsx
+
 import Footer from '@/components/footer';
 import HeaderP from '@/components/header';
 import React from 'react';
@@ -20,7 +20,7 @@ function classifyInvestment(performance: number): string {
   }
 }
 
-const Home: React.FC = () => {
+const Investimentos: React.FC = () => {
   return (
     <div className=''>
       <HeaderP />
@@ -100,4 +100,4 @@ backgroundPosition: 'center',
   );
 };
 
-export default Home;
+export default Investimentos;
