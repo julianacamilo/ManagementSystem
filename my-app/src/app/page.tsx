@@ -66,14 +66,15 @@ const Register = () => {
           backgroundPosition: 'center',
         }}
       >
-        <div className="w-1/3 p-6 bg-purple-600 text-white">
-          <h2 className="text-3xl font-semibold">FINANÇAS</h2>
-          <h3 className="text-2xl mt-4">Bem-vindo de volta!</h3>
-          <p className="text-2x1 mt-4">Acesse sua conta <br/> agora mesmo</p>
-          <button
-            className="px-4 py-2 mt-4 bg-purple-700 text-white rounded-full text-lg cursor-pointer"
-            onClick={handleLoginClick}
-          >
+        <div className="w-full md:max-w-screen-md p-6 flex flex-col md:flex-row items-center">
+          <div className="w-full md:w-1/2 bg-purple-600 text-white p-6 text-center md:text-left">
+            <h2 className="text-4xl font-semibold">FINANÇAS</h2>
+            <h3 className="text-3xl mt-4">Olá, Bem-vindo</h3>
+            <p className="text-2xl mt-4">Acesse sua conta agora mesmo</p>
+            <button
+              className="px-4 py-2 mt-5 bg-purple-700 text-white rounded-full text-lg cursor-pointer"
+              onClick={handleLoginClick}
+              >
             ENTRAR
           </button>
           <p className="text-1x2 mt-4">Esqueci minha <br /> senha</p>
