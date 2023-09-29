@@ -25,6 +25,12 @@ const ProfileContainer = () => {
           Metas de Orçamento
         </button>
         <button
+          onClick={() => handleNavigate('/investimentos')}
+          className="w-full bg-purple-900 text-white rounded-full py-3 mb-2 hover:bg-purple-800 transition duration-300"
+        >
+      Investimentos
+        </button>
+        <button
           onClick={() => handleNavigate('/ganhos')}
           className="w-full bg-purple-900 text-white rounded-full py-3 mb-2 hover:bg-purple-800 transition duration-300"
         >
