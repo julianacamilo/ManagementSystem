@@ -6,18 +6,18 @@ import Header from '@/components/head';
 import Footer from '@/components/footer';
 
 const Register = () => {
-  const router = useRouter(); 
+  const router = useRouter();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [registerError, setRegisterError] = useState('');
 
-  
   const handleLoginClick = () => {
-    router.push('/login'); 
+    router.push('/login');
   };
+
   const handleRegister = async () => {
-    setRegisterError(''); 
+    setRegisterError('');
 
     if (!name) {
       setRegisterError('Preencha o campo de nome.');
@@ -33,20 +33,16 @@ const Register = () => {
       setRegisterError('Preencha o campo de senha.');
       return;
     }
-
-   
-
     try {
-      const response = await axios.post('http://localhost:3001/register', {
+      const response = await axios.post('http://localhost:3003/register', {
         name,
         email,
         password,
       });
 
       if (response.status === 200) {
-     
         console.log('Registro bem-sucedido');
-        router.push('/login'); 
+        router.push('/login');
       } else {
         setRegisterError('Erro no registro');
       }
@@ -55,6 +51,7 @@ const Register = () => {
       setRegisterError('Erro ao fazer registro');
     }
   };
+
   return (
     <div>
       <Header />
@@ -74,10 +71,11 @@ const Register = () => {
             <button
               className="px-4 py-2 mt-5 bg-purple-700 text-white rounded-full text-lg cursor-pointer"
               onClick={handleLoginClick}
-              >
-            ENTRAR
+            >
+              ENTRAR
             </button>
-            <div className="w-full md:w-1/1 bg-white p-6">
+          </div>
+          <div className="w-full md:w-1/1 bg-white p-6">
             <h2 className="text-3xl font-semibold text-center">Crie sua conta</h2>
             <p className="mt-2 text-center md:text-left">Preencha seus dados</p>
             <input
