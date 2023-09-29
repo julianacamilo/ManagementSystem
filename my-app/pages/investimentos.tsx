@@ -79,8 +79,10 @@ const Investimentos: React.FC = () => {
             </div>
             <button
               className="w-full bg-purple-700 text-white rounded-full py-2 hover:bg-purple-800"
+              onClick={handleVerInvestimentosClick}
             >
               Adicionar Investimento
+              
             </button>
             <button
               className="w-full bg-purple-700 text-white rounded-full py-2 mt-4 hover:bg-purple-800"
