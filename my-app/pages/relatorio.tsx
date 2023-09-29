@@ -2,10 +2,11 @@ import fs from 'fs';
 import path from 'path';
 import { GetStaticProps } from 'next';
 import React, { useEffect } from 'react';
-import Chart from 'chart.js/auto'; // Importe o Chart.js
+import Chart from 'chart.js/auto'; 
 import Header from '@/components/head';
 import Footer from '@/components/footer';
 import 'tailwindcss/tailwind.css';
+import HeaderP from '@/components/header';
 
 interface Transacao {
   tipo: string;
@@ -177,7 +178,7 @@ const Relatorio = ({ transacoes }: RelatorioProps) => {
 const ProfilePage = ({ transacoes }: RelatorioProps) => {
   return (
     <div>
-      <Header />
+      <HeaderP />
       <div
         className="bg-gray-100 min-h-screen p-4 grid place-items-center"
         style={{

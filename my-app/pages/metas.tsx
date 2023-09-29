@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Footer from '@/components/footer';
-import Header from '@/components/head';
 import { useRouter } from 'next/router';
+import HeaderP from '@/components/header';
 
 const Metas: React.FC = () => {
   const initialMeta = {
@@ -29,7 +29,7 @@ const Metas: React.FC = () => {
 
   return (
     <div>
-      <Header />
+      <HeaderP />
       <div
           className="bg-gray-100 min-h-screen flex flex-col justify-center items-center px-4"
         style={{
